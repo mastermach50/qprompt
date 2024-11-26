@@ -11,3 +11,12 @@ When this command is run using some app launcher the user can give the password 
 
 # Screenshot
 ![screenshot](screenshot.png)
+
+# TODO
+|Feature|Status|
+|---|---|
+|Secure input|✅|
+|Enter is submit|✅|
+|Automatically focus on input field||
+|Program icon||
+|More config options||
