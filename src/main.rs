@@ -76,7 +76,9 @@ impl Prompt {
         let show_input_chkbx: Checkbox<Message> =
             checkbox("Show Password", self.show_password).on_toggle(Message::SecureInputToggled);
 
-        let button_row = row![show_input_chkbx, submit_btn, cancel_btn].spacing(20);
+        let button_row = row![show_input_chkbx, submit_btn, cancel_btn]
+            .align_y(Alignment::Center)
+            .spacing(20);
 
         let content = column![input_field, button_row]
             .align_x(Alignment::End)
