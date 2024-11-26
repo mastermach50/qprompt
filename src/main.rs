@@ -3,7 +3,6 @@ use iced::{window, Alignment, Task};
 use iced::{Element, Size, Theme};
 
 pub fn main() -> iced::Result {
-
     // Display the version details and exit
     let args: Vec<String> = std::env::args().collect();
     if args.contains(&"-v".to_string()) || args.contains(&"--version".to_string()) {
@@ -48,7 +47,7 @@ impl Prompt {
                 input: String::new(),
                 input_is_secure: true,
             },
-            Task::none(),
+            text_input::focus("password-input"),
         )
     }
 
@@ -68,6 +67,7 @@ impl Prompt {
 
     pub fn view(&self) -> Element<Message> {
         let input_field = text_input("Enter password", &self.input)
+            .id("password-input")
             .secure(self.input_is_secure)
             .on_input(Message::InputChanged)
             .on_submit(Message::Submit);

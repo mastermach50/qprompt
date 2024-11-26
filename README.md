@@ -17,6 +17,6 @@ When this command is run using some app launcher the user can give the password 
 |---|---|
 |Secure input|✅|
 |Enter is submit|✅|
-|Automatically focus on input field||
 |Program icon||
+|Automatically focus on input field|✅|
 |More config options||
