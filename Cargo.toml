@@ -1,0 +1,17 @@
+[package]
+name = "qprompt"
+version = "0.1.0"
+edition = "2021"
+
+authors = ["MasterMach50 <mathew@mathewma3.in>"]
+description = "A simple GUI prompt for use in scripts"
+repository = "https://github.com/mastermach50/qprompt"
+
+[profile.release]
+strip = true
+lto = true
+
+[dependencies]
+iced = { git = "https://github.com/iced-rs/iced.git", default-features = false, features = [
+    "tiny-skia",
+] }
