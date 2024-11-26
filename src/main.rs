@@ -36,7 +36,7 @@ enum Message {
 #[derive(Default)]
 struct Prompt {
     input: String,
-    input_is_secure: bool,
+    show_password: bool,
 }
 
 impl Prompt {
@@ -45,7 +45,7 @@ impl Prompt {
         (
             Prompt {
                 input: String::new(),
-                input_is_secure: true,
+                show_password: false,
             },
             text_input::focus("password-input"),
         )
@@ -54,7 +54,7 @@ impl Prompt {
     pub fn update(&mut self, msg: Message) {
         match msg {
             Message::InputChanged(input) => self.input = input,
-            Message::SecureInputToggled(state) => self.input_is_secure = !state,
+            Message::SecureInputToggled(state) => self.show_password = state,
             Message::Submit => {
                 println!("{}", self.input);
                 std::process::exit(0);
@@ -68,13 +68,13 @@ impl Prompt {
     pub fn view(&self) -> Element<Message> {
         let input_field = text_input("Enter password", &self.input)
             .id("password-input")
-            .secure(self.input_is_secure)
+            .secure(!self.show_password)
             .on_input(Message::InputChanged)
             .on_submit(Message::Submit);
         let submit_btn = button("Submit").on_press(Message::Submit);
         let cancel_btn = button("Cancel").on_press(Message::Cancel);
         let show_input_chkbx: Checkbox<Message> =
-            checkbox("Show Password", !self.input_is_secure).on_toggle(Message::SecureInputToggled);
+            checkbox("Show Password", self.show_password).on_toggle(Message::SecureInputToggled);
 
         let button_row = row![show_input_chkbx, submit_btn, cancel_btn].spacing(20);
 
