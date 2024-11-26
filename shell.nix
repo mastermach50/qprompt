@@ -1,4 +1,4 @@
-# shell.nix for Rust Environment
+# shell.nix for qprompt
 { pkgs ? import <nixpkgs> {} }:
 
 pkgs.mkShell {
@@ -9,7 +9,7 @@ pkgs.mkShell {
     rustfmt
   ];
 
-  LD_LIBRARY_PATH = with pkgs ;pkgs.lib.makeLibraryPath [
+  LD_LIBRARY_PATH = with pkgs; pkgs.lib.makeLibraryPath [
     wayland
     libxkbcommon
   ];
