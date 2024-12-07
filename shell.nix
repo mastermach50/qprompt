@@ -3,17 +3,19 @@
 
 pkgs.mkShell {
   name = "qprompt";
-  packages = with pkgs; [
+  buildInputs = with pkgs; [
     cargo
     rustc
     rustfmt
+    rust-analyzer
+    pkg-config
   ];
-
-  LD_LIBRARY_PATH = with pkgs; pkgs.lib.makeLibraryPath [
+  nativeBuildInputs = with pkgs; [
     wayland
     libxkbcommon
   ];
 
   RUST_BACKTRACE = 1;
+  # RUSTFLAGS = "-C target-feature=+crt-static";
 }
 

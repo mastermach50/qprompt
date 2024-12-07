@@ -1,6 +1,6 @@
 [package]
 name = "qprompt"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 
 authors = ["MasterMach50 <mathew@mathewma3.in>"]
@@ -10,8 +10,9 @@ repository = "https://github.com/mastermach50/qprompt"
 [profile.release]
 strip = true
 lto = true
+rpath = false
 
 [dependencies]
-iced = { git = "https://github.com/iced-rs/iced.git", default-features = false, features = [
+iced = { git = "https://github.com/iced-rs/iced.git", rev = "d6182299b9db7a1928b7740736d53196e33d66e3", default-features = false, features = [
     "tiny-skia",
 ] }
