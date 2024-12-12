@@ -12,6 +12,13 @@ When this command is run using some app launcher the user can give the password 
 # Screenshot
 ![screenshot](screenshot.png)
 
+# Building
+## Without nix
+Install rust and run `cargo b --release`
+## With nix
+```
+nix-build
+```
 # TODO
 |Feature|Status|
 |---|---|

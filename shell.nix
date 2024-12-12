@@ -1,5 +1,7 @@
 # shell.nix for qprompt
-{ pkgs ? import <nixpkgs> {} }:
+{
+  pkgs ? import <nixpkgs> { },
+}:
 
 pkgs.mkShell {
   name = "qprompt";
@@ -18,4 +20,3 @@ pkgs.mkShell {
   RUST_BACKTRACE = 1;
   # RUSTFLAGS = "-C target-feature=+crt-static";
 }
-
