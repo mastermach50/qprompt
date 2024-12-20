@@ -3,12 +3,18 @@ A simply GUI app to prompt the user for some input, like passwords.
 qprompt is built using [iced-rs](https://github.com/iced-rs/iced/) an hence supports wayland.
 The text given by the user is simply printed to stdout so that this can be used in scripts.
 
-### For example
+### Examples
 ```
 qprompt | sudo -S wireshark
 ```
-When this command is run using some app launcher the user can give the password without needing an open terminal.
+When this command is run using some app launcher the user can input the password without needing an open terminal.
 
+or
+
+qprompt can be set as the default askpass program used by sudo using the `SUDO_ASKPASS` environment variable. Then the following command will use qprompt to prompt the password
+```
+sudo -A gparted
+```
 # Screenshot
 ![screenshot](screenshot.png)
 
